@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-podTemplate(label: 'jnlp-slave' containers: [
+podTemplate(label: 'jnlp-slave', containers: [
   containerTemplate(name: 'jnlp-slave', image: 'engineerball/jenkins-slave-dind-kubernetes-int', ttyEnabled: true,
   privileged: true
 ]) {
