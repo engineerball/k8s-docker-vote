@@ -22,7 +22,7 @@ spec:
         run: worker
     spec:
       containers:
-      - image: gcr.io/example-project/worker:1.4
+      - image: engineerball/worker:a7d3c12f9ed668f5b8f734a2b85910209fc8f60d
         imagePullPolicy: IfNotPresent
         name: worker
         resources: {}

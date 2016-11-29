@@ -1,4 +1,4 @@
-iotoiotapiVersion: extensions/v1beta1
+apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   annotations:
@@ -24,7 +24,8 @@ spec:
         run: result
     spec:
       containers:
-      - image: gcr.io/example-project/result:1.1
+        #- image: gcr.io/example-project/result:1.1
+      - image: engineerball/result-app:a7d3c12f9ed668f5b8f734a2b85910209fc8f60d
         imagePullPolicy: IfNotPresent
         name: result
         ports:

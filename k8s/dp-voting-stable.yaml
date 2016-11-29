@@ -24,7 +24,7 @@ spec:
         track: stable
     spec:
       containers:
-      - image: gcr.io/example-project/voting:1.1
+      - image: engineerball/voting-app:a7d3c12f9ed668f5b8f734a2b85910209fc8f60d
         imagePullPolicy: IfNotPresent
         name: voting
         resources: {}
