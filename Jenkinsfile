@@ -23,7 +23,7 @@ podTemplate(label: 'jnlp-slave', containers: [
     )
 
     stage 'Push image to registry'
-    docker.withRegistry('https://index.docker.io/v1/','007ab01d-9ee0-49dc-b68b-d04ab2795299'){
+    docker.withRegistry('https://index.docker.io/v1/','007ab01d-9ee0-48dc-b68b-d04ab2795299'){
       parallel (
         "voting-app": {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${votingImageTag}"},
         "result-app": {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${resultImageTag}"},
