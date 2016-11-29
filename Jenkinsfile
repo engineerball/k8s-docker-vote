@@ -17,17 +17,17 @@ podTemplate(label: 'jnlp-slave', containers: [
 
     stage 'Build Image'
     parallel (
-      voting-app: {sh "cd voting-app; docker build -t ${votingImageTag} . "},
-      result-app: {sh "cd result-app; docker build -t ${resultImageTag} . "},
-      worker: {sh "cd worker; docker build -t ${workerImageTag} . "}
+      "voting-app": {sh "cd voting-app; docker build -t ${votingImageTag} . "},
+      "result-app": {sh "cd result-app; docker build -t ${resultImageTag} . "},
+      "worker": {sh "cd worker; docker build -t ${workerImageTag} . "}
     )
 
     stage 'Push image to registry'
     docker.withRegistry('https://index.docker.io/v1/','007ab01d-9ee0-49dc-b68b-d04ab2795299'){
       parallel (
-        voting-app: {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${votingImageTag}"},
-        result-app: {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${resultImageTag}"},
-        worker: {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${workerImageTag}"},
+        "voting-app": {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${votingImageTag}"},
+        "result-app": {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${resultImageTag}"},
+        "worker": {sh "cp /root/.dockercfg ~/.dockercfg; docker push ${workerImageTag}"},
       )
     }
   }
