@@ -1,12 +1,14 @@
-FROM k8s-openjdk-jdk:1.8.0_77
+#FROM k8s-openjdk-jdk:1.8.0_77
+FROM java:7
 
-#RUN apt-get update -qq && apt-get install -y maven && apt-get clean
+RUN sed --in-place 's/httpredir.debian.org/ftp.th.debian.org/' /etc/apt/sources.list
+RUN apt-get update -qq && apt-get install -y maven && apt-get clean
 
-RUN MAVEN_VERSION=3.3.3 \
- && cd /usr/share \
- && wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz -O - | tar xzf - \
- && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
- && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
+#RUN MAVEN_VERSION=3.3.3 \
+# && cd /usr/share \
+# && wget http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz -O - | tar xzf - \
+# && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
+# && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
 
 WORKDIR /code
 

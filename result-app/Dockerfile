@@ -1,4 +1,5 @@
-FROM k8s-node-lts:4.4.4 
+#FROM k8s-node-lts:4.4.4 
+FROM node:0.10
 
 WORKDIR /app
 
