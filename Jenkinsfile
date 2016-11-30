@@ -35,8 +35,8 @@ podTemplate(label: 'jnlp-slave', containers: [
     sh("sed -i.bak 's#engineerball/example-voting-voting:null.14#${votingImageTag}#' ./k8s/production/*.yaml")
     sh("sed -i.bak 's#engineerball/example-voting-result:null.14#${resultImageTag}#' ./k8s/production/*.yaml")
     sh("sed -i.bak 's#engineerball/example-voting-worker:null.14#${workerImageTag}#' ./k8s/production/*.yaml")
-    sh("kubectl --server ${kubeserver} --namespace=production apply -f k8s/services/")
-    sh("kubectl --server ${kubeserver} --namespace=production apply -f k8s/production/")
+    sh("kubectl --server ${kubeServer} --namespace=production apply -f k8s/services/")
+    sh("kubectl --server ${kubeServer} --namespace=production apply -f k8s/production/")
   }
 
 }
